@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Manual de la manera en que se hizo el sitio web</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0 20px;
+      background-color: #f9f9f9;
+    }
+
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #2c3e50;
+    }
+
+    .paso {
+      margin-bottom: 20px;
+      background: #fff;
+      padding: 15px;
+      border-left: 4px solid #3498db;
+    }
+
+    button {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    .detalle {
+      display: none;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Manual de cómo se hizo mi sitio web</h1>
+  </header>
+
+  <section class="paso">
+    <h2>Objetivo</h2>
+    <p>Sitio web</p>
+    <button onclick="toggleDetalle(this)">Mostrar detalles</button>
+    <div class="detalle">
+      <p>Realizar un sitio web que muestre información de manera sencilla para su fácil manejo y aprendizaje para cada uno de los estudiantes de ingenieria en sistemas y obtener el conocimiento base de cómo crear una página web.</p>
+    </div>
+  </section>
+
+  <section class="paso">
+    <h2>Herramientas utilizadas</h2>
+    <p>Son:</p>
+    <button onclick="toggleDetalle(this)">Mostrar detalles</button>
+    <div class="detalle">
+      <p>Visual Studio Code, HTML, JavaScript, CSS, GitHub Pages / Netlify e investigaciones para el manejo del tema.</p>
+    </div>
+  </section>
+
+  <section class="paso">
+    <h2>Intrucciones a seguir</h2>
+    <p>Crear un sitio web que muestre lo siguiente:</p>
+    <button onclick="toggleDetalle(this)">Mostrar detalles</button>
+    <div class="detalle">
+      <p>
+1. Hoja de vida del alumno
+2. Tabla con Nombres y notas de primer y segundo parcial de los cursos cursados actualmente.
+3. Galeria de imagenes en el formato que se desee, debe tener al menos diez imagenes, pueden ser imagenes al azar o del alumno.
+4. Una pagina que muestre algun video de Youtube (puede usar el ejemplo dado en clase).
+5. Una pagina que muestre algun juego utilizando Javascript (debe investigar como colocar un juego sencillo, nada complicado).
+6. Una pagina que muestre los pasos que se siguieron para hacer el sitio (tipo manual tecnico).</p>
+    </div>
+  </section>
+
+  <section class="paso">
+    <h2>Paso 1: Planificación</h2>
+    <p>Elección de herramienta de trabajo.</p>
+    <button onclick="toggleDetalle(this)">Mostrar detalles</button>
+    <div class="detalle">
+      <p>Primeramente se busco en donde era más conveniente trabajar mi sitio web, en la cual se decidió utilizar Visual Studio Code por comodidad.</p>
+    </div>
+  </section>
+
+  <section class="paso">
+    <h2>Paso 2: Estructura HTML y JavaScript</h2>
+    <p>Se creó la base con etiquetas HTML y un poco de JavaScript.</p>
+    <button onclick="toggleDetalle(this)">Mostrar detalles</button>
+    <div class="detalle">
+      <p>Se usaron etiquetas como <code>&lt;header&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;div&gt;</code>, <code>&lt;section&gt;</code>, y <code>&lt;button&gt;</code>, y se utilizó JavaScript para agregar un juego al sitio web.</p>
+    </div>
+  </section>
+
+  <section class="paso">
+    <h2>Paso 3: Estilos CSS</h2>
+    <p>Se agregaron diversidad de estilos para dar una mejor apariencia visual al sitio web.</p>
+    <button onclick="toggleDetalle(this)">Mostrar detalles</button>
+    <div class="detalle">
+      <p>Se aplicaron colores, fondos animados y diseños para el aspecto atractivo del sitio con estilos en el <code>&lt;style&gt;</code>.</p>
+    </div>
+  </section>
+
+  <section class="paso">
+    <h2>Paso 4: Imagenes</h2>
+    <p>Se agregaron 10 imagenes.</p>
+    <button onclick="toggleDetalle(this)">Mostrar detalles</button>
+    <div class="detalle">
+      <p>Se muestran 10 imagenes parte de las maravillas del mundo moderno, en las que se agregaron etiquetas <code>&lt;img&gt;</code>, .</p>
+    </div>
+  </section>
+
+   <section class="paso">
+    <h2>Paso 5: Notas de cursos</h2>
+    <p>Se agregaron las notas de los cursos.</p>
+    <button onclick="toggleDetalle(this)">Mostrar detalles</button>
+    <div class="detalle">
+      <p>Se muestran las notas obtenidas en los primeros y segundos parciales en cada uno de los cursos de la ingenieria en sistemas, usando la siguiente etiqueta sucesivamente <code>&lt;td class="p1">15&gt;</code>, .</p>
+    </div>
+  </section>
+
+   <section class="paso">
+    <h2>Paso 6: Hoja de vida</h2>
+    <p>Se agrego la hoja de vida.</p>
+    <button onclick="toggleDetalle(this)">Mostrar detalles</button>
+    <div class="detalle">
+      <p>Se muestra la hoja de vida la cual se realizo utilizando la etiqueta <code>&lt;strong&gt;</code>, .</p>
+    </div>
+  </section>
+
+   <section class="paso">
+    <h2>Paso 7: Video</h2>
+    <p>Se agregaron videos al sitio web.</p>
+    <button onclick="toggleDetalle(this)">Mostrar detalles</button>
+    <div class="detalle">
+      <p>Se muestran dos videos en el sitio para el entretenimiento de las personas, se utilizo la etiqueta <code>&lt;src, inframe&gt;</code>, .</p>
+    </div>
+  </section>
+
+   <section class="paso">
+    <h2>Paso 8: Juego</h2>
+    <p>Se agregaron un juego usando JavaScript.</p>
+    <button onclick="toggleDetalle(this)">Mostrar detalles</button>
+    <div class="detalle">
+      <p>Se muestra un juevo el cual es el ahorcado, el mismo fue hecho usando script y etiquetas como </script> <code>&lt;div, mensajediv, const&gt;</code>, .</p>
+    </div>
+  </section>
+
+  
+   <section class="paso">
+    <h2>Paso 9: Marcos</h2>
+    <p>Se agregan marcos</p>
+    <button onclick="toggleDetalle(this)">Mostrar detalles</button>
+    <div class="detalle">
+      <p>Se agregan marcos para el mejor aspecto visual de mi sitio web.</p>
+    </div>
+  </section>
+
+   <section class="paso">
+    <h2>Paso 10: Manual de uso</h2>
+    <p>Manual de la realizacion del sitio web.</p>
+    <button onclick="toggleDetalle(this)">Mostrar detalles</button>
+    <div class="detalle">
+      <p>Se muestra un manual el cual fue realizado para dar a conocer la manera en que se llevo acabo el presente sitio web en la que se usaron etiquetas como <code>&lt;p, h2, class, buttos, section, div&gt;</code>, .</p>
+    </div>
+  </section>
+
+  <section class="paso">
+    <h2>Paso 11: Publicion del sitio web</h2>
+    <p></p>
+    <button onclick="toggleDetalle(this)">Mostrar detalles</button>
+    <div class="detalle">
+      <p>Se publica el sitio web urilizando GitHub Pages para luego compartir la URL.</p>
+    </div>
+  </section>
+
+  <section class="paso">
+    <h2>Conclusión</h2>
+    <p></p>
+    <button onclick="toggleDetalle(this)">Mostrar detalles</button>
+    <div class="detalle">
+      <p>Crear un sitio web como introducción al mundo tecnológico es algo de suma importancia ya que gracias a ello se aprende muchas cosas que en el transcurso de la carrera serán de gran utilidad.</p>
+    </div>
+  </section>
+
+  <script>
+    function toggleDetalle(boton) {
+      const detalle = boton.nextElementSibling;
+      if (detalle.style.display === "none" || detalle.style.display === "") {
+        detalle.style.display = "block";
+        boton.textContent = "Ocultar detalles";
+      } else {
+        detalle.style.display = "none";
+        boton.textContent = "Mostrar detalles";
+      }
+    }
+  </script>
+
+</body>
+</html>

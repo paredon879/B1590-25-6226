@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Juego del Ahorcado</title>
+<head>
+  <meta charset="UTF-8">
+  <title>Juego del Ahorcado</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #f3f4f7, #cbdcf1);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+      
+    .contenedor {
+      background-color: #ffffffcc;
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      max-width: 500px;
+      width: 90%;
+    }
+
+    h1 {
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+
+    #palabra {
+      font-size: 2em;
+      letter-spacing: 10px;
+      margin: 20px 0;
+      color: #34495e;
+    }
+
+    #letrasIncorrectas {
+      color: #e74c3c;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    #mensaje {
+      font-size: 1.4em;
+      margin-top: 20px;
+      color: #2c3e50;
+    }
+
+    .ahorcado {
+      position: relative;
+      width: 120px;
+      height: 200px;
+      margin: 20px auto;
+    }
+
+    .poste, .soporte, .cuerda, .cabeza, .cuerpo, .brazo-izq, .brazo-der, .pierna-izq, .pierna-der {
+      background-color: #333;
+      position: absolute;
+    }
+
+    .poste {
+      width: 10px;
+      height: 200px;
+      left: 0;
+      top: 0;
+    }
+
+    .soporte {
+      width: 80px;
+      height: 10px;
+      left: 0;
+      top: 0;
+    }
+
+    .cuerda {
+      width: 2px;
+      height: 30px;
+      left: 78px;
+      top: 10px;
+      background-color: #555;
+    }
+
+    .cabeza {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 3px solid #333;
+      top: 40px;
+      left: 63px;
+      display: none;
+      background-color: #fafafa;
+    }
+
+    .cuerpo {
+      width: 4px;
+      height: 50px;
+      top: 70px;
+      left: 75px;
+      display: none;
+      background-color: #444;
+    }
+
+    .brazo-izq, .brazo-der {
+      width: 30px;
+      height: 4px;
+      top: 85px;
+      display: none;
+      background-color: #444;
+    }
+
+    .brazo-izq {
+      left: 45px;
+      transform: rotate(-30deg);
+    }
+
+    .brazo-der {
+      left: 75px;
+      transform: rotate(30deg);
+    }
+
+    .pierna-izq, .pierna-der {
+      width: 30px;
+      height: 4px;
+      top: 120px;
+      display: none;
+      background-color: #444;
+    }
+
+    .pierna-izq {
+      left: 48px;
+      transform: rotate(30deg);
+    }
+
+    .pierna-der {
+      left: 75px;
+      transform: rotate(-30deg);
+    }
+
+    #intentosRestantes {
+      margin-top: 10px;
+      color: #2c3e50;
+    }
+
+    #reiniciarBtn {
+      display: none;
+      margin-top: 20px;
+      padding: 10px 25px;
+      font-size: 1em;
+      background-color: #2980b9;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #reiniciarBtn:hover {
+      background-color: #1c6691;
+    }
+    .caja-ahorcado {
+  background-color: #fff;
+  border: 2px solid #2c3e50;
+  padding: 20px;
+  border-radius: 10px;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+body {
+  background: linear-gradient(-45deg, #e3f2fd, #56bc9c, #f9cd90, #64f6ef);
+  background-size: 400% 400%;
+  animation: fondoAnimado 15s ease infinite;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes fondoAnimado {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+  </style>
+</head> 
+<body>
+    
+  <h1>🎲 Juego del Ahorcado</h1>
+
+  <div class="caja-ahorcado">
+  <div class="ahorcado">
+    <!-- partes del dibujo -->
+    <div class="poste"></div>
+    <div class="soporte"></div>
+    <div class="cuerda"></div>
+    <div class="cabeza" id="cabeza"></div>
+    <div class="cuerpo" id="cuerpo"></div>
+    <div class="brazo-izq" id="brazoIzq"></div>
+    <div class="brazo-der" id="brazoDer"></div>
+    <div class="pierna-izq" id="piernaIzq"></div>
+    <div class="pierna-der" id="piernaDer"></div>
+  </div>
+
+
+  <div id="palabra">_ _ _ _ _</div>
+  <p>Presiona una letra del teclado para adivinar</p>
+  <div id="letrasIncorrectas">Letras incorrectas: </div>
+  <div id="intentosRestantes">Intentos restantes: <span id="intentos">6</span></div>
+  <div id="mensaje"></div>
+  <button onclick="reiniciarJuego()" id="reiniciarBtn" style="display: none; margin-top: 20px;">
+  🔄 Reiniciar juego
+</button>
+
+  <script>
+  const partes = [
+    "cabeza", "cuerpo", "brazoIzq", "brazoDer", "piernaIzq", "piernaDer"
+  ];
+
+  const palabras = ["atenas", "roma", "paris", "varsovia", "bruselas","dublin", "amsterdam","londres", "berlin"];
+  let palabra;
+  const palabraDiv = document.getElementById("palabra");
+  const incorrectasDiv = document.getElementById("letrasIncorrectas");
+  const intentosSpan = document.getElementById("intentos");
+  const mensajeDiv = document.getElementById("mensaje");
+  const reiniciarBtn = document.getElementById("reiniciarBtn");
+
+  let letrasCorrectas = [];
+  let letrasIncorrectas = [];
+  let intentos = 6;
+
+  function elegirPalabra() {
+    palabra = palabras[Math.floor(Math.random() * palabras.length)];
+  }
+
+  function mostrarPalabra() {
+    let mostrar = "";
+    for (let letra of palabra) {
+      mostrar += letrasCorrectas.includes(letra) ? letra + " " : "_ ";
+    }
+    palabraDiv.textContent = mostrar.trim();
+  }
+
+  function mostrarAhorcado() {
+    const parte = partes[6 - intentos - 1];
+    if (parte) {
+      document.getElementById(parte).style.display = "block";
+    }
+  }
+
+  function verificarJuego() {
+    if (!palabra.split('').some(letra => !letrasCorrectas.includes(letra))) {
+      mensajeDiv.textContent = "🎉 ¡Ganaste! La palabra era: " + palabra;
+      document.removeEventListener("keydown", manejarLetra);
+      reiniciarBtn.style.display = "inline-block";
+    }
+
+    if (intentos === 0) {
+      mensajeDiv.textContent = "💀 ¡Perdiste! La palabra era: " + palabra;
+      document.removeEventListener("keydown", manejarLetra);
+      reiniciarBtn.style.display = "inline-block";
+    }
+  }
+
+  function manejarLetra(e) {
+    const letra = e.key.toLowerCase();
+    if (!/^[a-zñ]$/.test(letra)) return;
+
+    if (palabra.includes(letra)) {
+      if (!letrasCorrectas.includes(letra)) {
+        letrasCorrectas.push(letra);
+      }
+    } else {
+      if (!letrasIncorrectas.includes(letra)) {
+        letrasIncorrectas.push(letra);
+        intentos--;
+        mostrarAhorcado();
+      }
+    }
+
+    mostrarPalabra();
+    incorrectasDiv.textContent = "Letras incorrectas: " + letrasIncorrectas.join(" ");
+    intentosSpan.textContent = intentos;
+    verificarJuego();
+  }
+
+  function reiniciarJuego() {
+    letrasCorrectas = [];
+    letrasIncorrectas = [];
+    intentos = 6;
+
+    partes.forEach(parte => {
+      document.getElementById(parte).style.display = "none";
+    });
+
+    mensajeDiv.textContent = "";
+    incorrectasDiv.textContent = "Letras incorrectas: ";
+    intentosSpan.textContent = intentos;
+    reiniciarBtn.style.display = "none";
+
+    elegirPalabra();
+    mostrarPalabra();
+    document.addEventListener("keydown", manejarLetra);
+  }
+
+  // Inicializar
+  elegirPalabra();
+  mostrarPalabra();
+  document.addEventListener("keydown", manejarLetra);
+</script>

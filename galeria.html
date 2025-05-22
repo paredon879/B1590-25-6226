@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>GALERIA DE LAS SIETE MARAVILLAS DEL MUNDO Y DEMAS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .galeria img {
+            width: 100%;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .galeria img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Estilo para imagen ampliada */
+        #modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        #modal img {
+            max-width: 90%;
+            max-height: 80%;
+        }
+
+        #modal.close {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>GALERIA DE  LAS 7 MARAVILLAS DEL MUNDO MODERNO Y DEMAS</h1>
+    <div class="galeria">
+        <img src="img/chichen.jpg" alt="chichen">
+        <img src="img/coliseo.jpg" alt="coliseo">
+        <img src="img/giza.jpg" alt="giza">
+        <img src="img/londres.jpg" alt="londre">
+        <img src="img/machu.jpg" alt="machu">
+        <img src="img/monte.jpg" alt="monte">
+        <img src="img/muralla.jpg" alt="muralla">
+        <img src="img/petra.jpg" alt="petra">
+        <img src="img/redentor.jpg" alt="redentor">
+        <img src="img/taj.jpg" alt="taj">
+        <img src="img/tikal.jpg" alt="tikal">
+        <img src="img/turkia.jpg" alt="turkia">
+        <!-- Agrega más imágenes si quieres -->
+    </div>
+
+    <!-- Modal para ampliar imagen -->
+    <div id="modal" onclick="cerrarModal()">
+        <img id="modal-img" src="">
+    </div>
+
+    <script>
+        const imagenes = document.querySelectorAll('.galeria img');
+        const modal = document.getElementById('modal');
+        const modalImg = document.getElementById('modal-img');
+
+        imagenes.forEach(img => {
+            img.addEventListener('click', () => {
+                modal.style.display = 'flex';
+                modalImg.src = img.src;
+            });
+        });
+
+        function cerrarModal() {
+            modal.style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
+
+<style>
+    body
+     {
+        margin: 0;
+        padding: 0;
+        background: #77beec; /* Fondo oscuro para que la nieve resalte */
+        overflow-x: hidden;
+        position: relative;
+        min-height: 100vh;
+    }
+
+    .nieve {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 9999;
+    }
+
+    .nieve span {
+        position: absolute;
+        display: block;
+        width: 10px;
+        height: 10px;
+        background: white;
+        border-radius: 50%;
+        opacity: 0.8;
+        animation: caer linear infinite;
+    }
+
+    @keyframes caer {
+        0% {
+            transform: translateY(-10px);
+            opacity: 0;
+        }
+        100% {
+            transform: translateY(100vh);
+            opacity: 1;
+        }
+    }
+</style>
+<div class="nieve">
+    <span style="left: 5%; animation-duration: 10s; animation-delay: 0s;"></span>
+    <span style="left: 15%; animation-duration: 12s; animation-delay: 2s;"></span>
+    <span style="left: 25%; animation-duration: 8s; animation-delay: 1s;"></span>
+    <span style="left: 35%; animation-duration: 14s; animation-delay: 3s;"></span>
+    <span style="left: 45%; animation-duration: 11s; animation-delay: 0.5s;"></span>
+    <span style="left: 55%; animation-duration: 13s; animation-delay: 1.5s;"></span>
+    <span style="left: 65%; animation-duration: 9s; animation-delay: 2.5s;"></span>
+    <span style="left: 75%; animation-duration: 15s; animation-delay: 1s;"></span>
+    <span style="left: 85%; animation-duration: 10s; animation-delay: 0s;"></span>
+    <span style="left: 95%; animation-duration: 12s; animation-delay: 1.2s;"></span>
+</div>

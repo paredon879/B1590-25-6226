@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Sitio Web Increíble</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #74ebd5, #feffff);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #e5d2d2a7;
+        }
+
+        .container {
+            background-color: rgb(37, 43, 82);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(105, 130, 255, 0.982);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bienvenido a Mi Sitio Web</h1>
+        <p>Diviertete con un juego o un video</p>
+    </div>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Fondo con Imagen</title>
+    <script>
+        // Este script se ejecutará cuando la página se cargue
+        window.onload = function() {
+            document.body.style.backgroundImage = "url('img/prog.jpg')";
+            document.body.style.backgroundSize = "cover";  // Ajusta la imagen al tamaño de la ventana
+            document.body.style.backgroundRepeat = "no-repeat";  // No repetir la imagen
+            document.body.style.backgroundPosition = "center";   // Centrar la imagen
+        };
+    </script>
+</head>
+<body>
+</body>
+</html>
+
+<style>
+    body
+     {
+        margin: 0;
+        padding: 0;
+        background: #77beec; /* Fondo oscuro para que la nieve resalte */
+        overflow-x: hidden;
+        position: relative;
+        min-height: 100vh;
+    }
+
+    .nieve {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 9999;
+    }
+
+    .nieve span {
+        position: absolute;
+        display: block;
+        width: 10px;
+        height: 10px;
+        background: white;
+        border-radius: 50%;
+        opacity: 0.8;
+        animation: caer linear infinite;
+    }
+
+    @keyframes caer {
+        0% {
+            transform: translateY(-10px);
+            opacity: 0;
+        }
+        100% {
+            transform: translateY(100vh);
+            opacity: 1;
+        }
+    }
+</style>
+<div class="nieve">
+    <span style="left: 5%; animation-duration: 10s; animation-delay: 0s;"></span>
+    <span style="left: 15%; animation-duration: 12s; animation-delay: 2s;"></span>
+    <span style="left: 25%; animation-duration: 8s; animation-delay: 1s;"></span>
+    <span style="left: 35%; animation-duration: 14s; animation-delay: 3s;"></span>
+    <span style="left: 45%; animation-duration: 11s; animation-delay: 0.5s;"></span>
+    <span style="left: 55%; animation-duration: 13s; animation-delay: 1.5s;"></span>
+    <span style="left: 65%; animation-duration: 9s; animation-delay: 2.5s;"></span>
+    <span style="left: 75%; animation-duration: 15s; animation-delay: 1s;"></span>
+    <span style="left: 85%; animation-duration: 10s; animation-delay: 0s;"></span>
+    <span style="left: 95%; animation-duration: 12s; animation-delay: 1.2s;"></span>
+</div>
